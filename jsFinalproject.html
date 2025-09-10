@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Grocery Bud</title>
+    <link rel="stylesheet" href="jsFinalproject.css" />
+    <script src="https://kit.fontawesome.com/05d97ab528.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="mainDiv">
+        <div class="container">
+            <h1 class="headding"><i class="fa-solid fa-cart-shopping"></i> Grocery Bud</h1>
+            <input class="inputBox" type="text" id="itemInput" placeholder="Enter item" />
+            <button class="add" id="addItem" onclick="addItem()">Add Item</button>
+            <div class="liParent">
+                <table id="itemList"></table>
+            </div>
+            <button class="clear" id="clearBtn" onclick="clearItems()">Clear All</button>
+        </div>
+    </div>
+    <script src="jsFinalproject.js"></script>
+</body>
+
+</html>
