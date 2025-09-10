@@ -11,12 +11,12 @@
   font-family: Arial, sans-serif;
   color: white;
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden; /* ✅ prevent horizontal scroll */
 }
 
 /* Background blur */
@@ -27,105 +27,83 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("Will AI be smater than humans.jpeg") no-repeat center center/cover;
-  filter: brightness(0.3) invert(0.2);   /* 👈 blur level */
-  z-index: -1;         /* keep behind content */
+  background: url("Will AI be smater than humans.jpeg") no-repeat center center;
+  background-size: cover;   /* ✅ ensures full cover */
+  filter: brightness(0.3) blur(5px);   /* ✅ blur instead of invert */
+  z-index: -1;         
 }
 
 .container {
-    width: 70%;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0px 0px 20px rgba(34, 207, 219, 0.589);
-      animation: fadeIn 2s ease-in-out;
-    }
+  width: 90%;              /* ✅ reduce width for mobile */
+  max-width: 1000px;       /* ✅ cap for big screens */
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px rgba(34, 207, 219, 0.589);
+  animation: fadeIn 2s ease-in-out;
+  overflow-x: auto;        /* ✅ allow scroll if really needed */
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;     /* ✅ fix cell widths */
+  word-wrap: break-word;   /* ✅ break long text */
+}
 
-    th, td {
-      padding: 15px;
-      border: 1px solid #ddd;
-      
-    }
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  word-break: break-word;
+  text-align: center;
+}
 
-    th {
-      font-size: 22px;
-      text-transform: uppercase;
-      background: linear-gradient(90deg, #0072ff, #00c6ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    
-    }
+th {
+  font-size: 18px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #0072ff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-    
-   
-    td {
-      font-size: 18px;
-    }
+td {
+  font-size: 16px;
+}
 
-    a {
-      text-decoration: none;
-      color: #00c6ff;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
+a {
+  text-decoration: none;
+  color: #00c6ff;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
 
-    a:hover {
-      color: #ffcc00;
-      text-shadow: 0px 0px 10px #ffcc00;
-    }
+a:hover {
+  color: #ffcc00;
+  text-shadow: 0px 0px 10px #ffcc00;
+}
 
-    @keyframes fadeIn {
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(50px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
-      from { opacity: 0;
-             transform: translateY(50px); 
-        }
-
-      to { 
-        opacity: 5;
-         transform: translateY(0);
-        }
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        width: 90%;
-      }
-
-      @media (max-width: 600px) {
+@media (max-width: 600px) {
   .container {
-    width: 90%;
+    width: 95%;
     padding: 15px;
   }
-
-  table {
-    display: block;   /* Added to enable horizontal scrolling */
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
   th, td {
-    padding: 10px 8px;
-    white-space: nowrap; /* Prevent line breaks in table cells */
-    font-size: 16px;
-  }
-
-  th {
-    font-size: 18px;
+    font-size: 14px;
+    padding: 8px;
   }
 }
 
-    }
+
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>🚀 Welcome to Esakkiraj Raj's Project Showcase </h1>
+    <h1> Welcome to Esakkiraj Raj's Project Showcase ! </h1>
     <h3> A journey of innovation and creativity.</h3>
     <table>
       <tr>
@@ -134,9 +112,9 @@ body::before {
         <th>Link</th>
       </tr>
       <tr>
-        <td style="width: 20%;">Grocery Bud </td>
-        <td style="width: 60%;">This Grocery Bud project is a responsive web app to add, edit, and delete grocery items with data saved in local storage for persistence. It features a clean design with intuitive controls that work smoothly on all screen sizes, from desktop to mobile.</td>
-        <td style="width: 20%;"><a href="jsFinalproject.html" target="_blank">View Project</a></td>
+        <td  data-label="Project Name" style="width: 20%;">Grocery Bud </td>
+        <td data-label="Description" style="width: 60%;">This Grocery Bud project is a responsive web app to add, edit, and delete grocery items with data saved in local storage for persistence. It features a clean design with intuitive controls that work smoothly on all screen sizes, from desktop to mobile.</td>
+        <td data-label="Link" style="width: 20%;"><a href="jsFinalproject.html" target="_blank">View Project</a></td>
       </tr>
     </table>
   </div>

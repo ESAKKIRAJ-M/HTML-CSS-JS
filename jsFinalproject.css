@@ -63,6 +63,10 @@
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .add {
@@ -91,50 +95,78 @@
 }
 
 /* List/Table */
-.list {
-  padding: 10px;
-  font-size: 1rem;
-  max-width: 100%;
-  white-space: normal;
+#itemList {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
 }
 
-td {
-  vertical-align: middle;
-  padding: 10px;
-  word-break: break-word;
-  white-space: normal;
-}
-
-/* Flex rows for larger screens */
+/* Flex container for each row */
 #itemList tr {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 0;
+  padding: 8px 0;
+  border-bottom: 1px solid #ccc;
+  flex-wrap: nowrap; /* Prevent wrapping so buttons stay on same line */
 }
 
+#itemList tr:last-child {
+  border-bottom: none;
+}
+
+/* Item text styling */
 #itemList tr td:first-child {
   flex: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
   padding-right: 10px;
+  word-break: break-word;
+  white-space: normal;
+  min-width: 0; /* Ensures flex-shrink works well for long text */
 }
 
+/* Buttons container */
 #itemList tr td:last-child {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-shrink: 0;
+  white-space: nowrap; /* Prevent wrapping inside button container */
 }
 
-/* Buttons */
+/* Buttons with icons */
 .deleteBtn, .editBtn {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   border: none;
   background: transparent;
   cursor: pointer;
-  padding: 8px 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.deleteBtn:hover {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: red;
+}
+
+.editBtn:hover {
+  background-color: rgba(0, 128, 0, 0.1);
+  color: green;
 }
 
 .deleteBtn { color: red; }
 .editBtn { color: green; }
+
+/* Icons inside buttons */
+.deleteBtn i, .editBtn i {
+  pointer-events: none;
+}
 
 /* 📱 Media Queries */
 
@@ -152,90 +184,44 @@ td {
   #itemList tr td:first-child { font-size: 0.95rem; }
 }
 
-/* Small phones */
+/* Small phones - stack item label and buttons vertically */
 @media (max-width: 400px) {
-  .headding { font-size: 1.2rem; margin: 5px 0; }
-  .container { width: 95%; padding: 10px; }
-  .inputBox { height: 40px; font-size: 0.9rem; }
-  .add, .clear { height: 40px; font-size: 0.9rem; width: 100%; }
-  
-  /* Table turns into vertical stack */
   #itemList tr {
-    display: block;
+    display: block; /* Stack row vertically */
     border-bottom: 1px solid #ccc;
     padding: 8px 0;
-  }
-  #itemList tr td {
-    display: block;
-    width: 100%;
-    padding: 6px 0;
-  }
-  #itemList tr td:last-child {
-    display: flex;
-    justify-content: flex-start;
-    gap: 15px;
-    margin-top: 8px;
-  }
-  .deleteBtn, .editBtn {
-    flex: 1;
-    text-align: center;
-    font-size: 1rem;
-    padding: 10px 0;
-  }
-}
-/* Small phones */
-@media (max-width: 400px) {
-  .headding {
-    font-size: 1.2rem;
-    margin: 5px 0;
-  }
-  .container {
-    width: 95%;
-    padding: 10px;
-  }
-  .inputBox {
-    height: 40px;
-    font-size: 0.9rem;
-  }
-  .add, .clear {
-    height: 40px;
-    font-size: 0.9rem;
-    width: 100%;
-  }
-
-  /* Table becomes block layout */
-  #itemList tr {
-    display: block;
-    border-bottom: 1px solid #ccc;
-    padding: 8px 0;
-    text-align: left;  /* ✅ ensures left alignment */
-  }
-
-  #itemList tr td {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    padding: 6px 0;
-    text-align: left;   /* ✅ keeps items aligned left */
-    word-break: break-word; /* ✅ avoids overflow */
+    text-align: left;
   }
 
   #itemList tr td:first-child {
+    display: block;
+    width: 100%;
     font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 5px;  /* little gap before buttons */
+    font-weight: 600;
+    margin-bottom: 5px;
   }
 
   #itemList tr td:last-child {
     display: flex;
+    gap: 12px;
     justify-content: flex-start;
-    gap: 15px;
-    margin-top: 8px;
+    flex-wrap: wrap; /* Allow buttons to wrap nicely on small widths */
   }
 
   .deleteBtn, .editBtn {
-    flex: unset;        /* ✅ don't stretch buttons full */
-    font-size: 1rem;
-    padding: 6px 12px;
+    font-size: 1.2rem;
+    padding: 8px 12px;
+  }
+}
+
+/* Very small phones - stack buttons vertically */
+@media (max-width: 320px) {
+  #itemList tr td:last-child {
+    flex-direction: column;
+  }
+
+  .deleteBtn, .editBtn {
+    width: 100%;
+    margin-bottom: 6px;
   }
 }
