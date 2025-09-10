@@ -1,0 +1,196 @@
+.overAllDiv{
+    width: 80%;
+    border: 1px solid black;
+    display: grid;
+    justify-self: center;
+    justify-items: center;
+    
+}
+.borderDiv{
+    width: 95%;
+    margin: 10px;
+    border: 15px solid rgb(66, 60, 60);
+    border-style:inherit;
+    background-color: rgba(76, 233, 160, 0.514);
+  
+    
+}
+
+.headerDiv{
+    width: 100%;
+    display: flex;
+}
+
+.headingDiv{
+    width: 60%;
+    color: rgb(6, 6, 71);
+    font-size:10px;
+    justify-items: center;
+    
+}
+
+.logoDiv{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.picDiv{
+    width: 20%;
+}
+
+.auLogo{
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+}
+.picDiv{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.myPicture{
+    width: 100px;
+    height: 120px;
+    
+
+}
+
+.regNoDiv{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    justify-content: space-between;
+    color: black;
+   
+}
+
+.slNo{
+    
+    display:flex ;
+    
+    
+}
+
+.folloNo{
+    display: flex;
+    
+
+}
+
+.table1{
+    width: 100%;
+    font-size: 10px;
+
+
+}
+
+.tabletag
+{
+    width: 100%;
+}
+
+.table1 table, 
+.table1 td, 
+.table1 th {
+    font-size: 15px;
+    height: 40px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+
+.tableDive table {
+    border-collapse: collapse; 
+    width: 100%;
+}
+
+.tableDive th{
+    border: 1px solid black;
+} 
+ 
+.tableDive td {
+    border-left: 1px solid black;   
+    border-right: 1px solid black;  
+    text-align: center;
+    padding: 8px;
+    border-top: none;    
+    border-bottom: none; 
+}
+
+.tableDive{
+    background-image: url("logoannauniversity.png");
+    background-size: 550px 380px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y:350px;
+    height: 68%;
+    
+}
+/* 
+#table2{
+    border-bottom: 1px solid black;
+} */
+
+
+.footerTable {
+    
+    width: 100%;
+}
+.footerTable table{
+    width: 100%;
+}
+.footerTable table ,
+.footerTable tr,
+.footerTable td{
+    border-collapse:collapse;
+    border: 1px solid black;
+    text-align: center;
+
+}
+.footer1{
+    background-color: rgb(105, 103, 103);
+}
+
+.f1{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.foote2{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(139, 132, 132);
+}
+
+.signRaj{
+    height: 40px;
+    width: 50px;
+   margin-left: 50px;
+
+}
+
+.footLogoAu{
+    height: 70px;
+    width: 70px;
+}
+
+.esakkiSign{
+    height: 59px;
+    width: 100px;
+    margin-left: 50px;
+
+}
+
+.seel{
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    margin-top: -90px;
+    margin-left: 150px;
+}

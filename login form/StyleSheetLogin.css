@@ -1,0 +1,142 @@
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body.container1 {
+      position: relative;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    body.container1::before {
+      content: "";
+      background-image: url("Untitled\ design.png");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      height: 100%;
+      filter: blur(3px);
+      z-index: -1;
+    }
+
+    .zohoLogo{
+      height: 100px;
+      width: 2 50px;
+      margin: 40px;
+    }
+ 
+    .ulist {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .ulist li img {
+      width: 130px;
+      height: 60px;
+    }
+
+    .mainDiv {
+      display: flex;
+      justify-content: center;
+  
+    }
+
+    .container2 {
+      width: 80%;
+      max-width: 950px;
+      background: rgba(255, 255, 255, 0.459);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+      text-align: center;
+      margin-top: 70px;
+    }
+
+    .container2 h1 {
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .container2 h2 {
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    form {
+      text-align: left;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    td {
+      padding: 10px;
+      vertical-align: middle;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #a5a5a5;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: none;
+      height: 60px;
+    }
+
+    .submit-btn {
+      margin-top: 20px;
+      width: 300px;
+      display: grid;
+      justify-self: center;
+      padding: 12px;
+      border: none;
+      background:red;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: white;
+      border: 1px solid red;
+      color: red;
+    }
+  
+
+.meter {
+  height: 10px;
+  width: 100%;
+  background:white;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+.bar {
+  height: 100%;
+  width: 0%;
+  background: red;
+  border-radius: 10px;
+  transition: width 0.3s;
+}
+.strength-text {
+  font-size: 14px;
+  margin: 5px 0;
+}
+.percent {
+  float: right;
+}
+
+   
