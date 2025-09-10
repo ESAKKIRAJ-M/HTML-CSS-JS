@@ -95,6 +95,31 @@ body::before {
       .container {
         width: 90%;
       }
+
+      @media (max-width: 600px) {
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  table {
+    display: block;   /* Added to enable horizontal scrolling */
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  th, td {
+    padding: 10px 8px;
+    white-space: nowrap; /* Prevent line breaks in table cells */
+    font-size: 16px;
+  }
+
+  th {
+    font-size: 18px;
+  }
+}
+
     }
   </style>
 </head>
