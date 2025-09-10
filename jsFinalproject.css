@@ -1,3 +1,4 @@
+/* Base Reset */
 * {
   margin: 0;
   padding: 0;
@@ -16,56 +17,58 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 15px;
 }
 
 .headding {
   margin: 10px;
   padding: 10px;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: orangered;
   text-align: center;
 }
 
 .container {
-  width: 60%;
+  width: 100%;
   max-width: 800px;
-  background-image: linear-gradient(rgba(252, 252, 252, 0.8), rgba(255, 255, 255, 0.7));
+  background-image: linear-gradient(rgba(252, 252, 252, 0.85), rgba(255, 255, 255, 0.75));
   border-radius: 20px;
   display: grid;
   justify-content: center;
   padding: 20px;
-  overflow-wrap: break-word; /* allows breaking long words */
-  word-wrap: break-word;     /* legacy support */
-  word-break: break-word;    /* breaks words to prevent overflow */
-  overflow-x: hidden;        /* hides horizontal overflow */
+  overflow-wrap: break-word;
+  word-break: break-word;
+  overflow-x: hidden;
 }
 
+/* Input and Buttons */
 .inputBox {
-  height: 50px;
+  height: 45px;
   width: 100%;
-  max-width: 600px;
   border-radius: 10px;
   border: none;
   padding: 5px 10px;
-  font-size: 1.2rem;
-  margin: 20px auto;
+  font-size: 1rem;
+  margin: 15px auto;
   display: block;
 }
 
-.add {
-  height: 30px;
-  width: 40%;
-  max-width: 200px;
-  margin: 20px auto;
+.add, .clear {
+  height: 45px;
+  width: 100%;
+  max-width: 250px;
+  margin: 10px auto;
   border-radius: 10px;
   border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add {
   background-color: green;
   color: white;
-  font-size: 1.2rem;
-  font-weight: 600;
   box-shadow: 2px 2px 2px black;
-  cursor: pointer;
 }
 
 .add:active {
@@ -75,19 +78,10 @@
 }
 
 .clear {
-  height: 30px;
-  width: 40%;
-  max-width: 160px;
-  justify-self: center;
-  border: none;
   background-color: red;
   color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
   border-radius: 20px;
-  box-shadow: 4px 4px 4px black;
-  margin: 20px auto;
-  cursor: pointer;
+  box-shadow: 3px 3px 3px black;
 }
 
 .clear:active {
@@ -96,116 +90,152 @@
   border: 1px solid red;
 }
 
+/* List/Table */
 .list {
-  padding: 15px 15px;
-  margin-top: 10px;
-  list-style: none;
-  font-size: 1.3rem;
-  max-width: 100%;            /* never allow wider than container */
-  white-space: normal;        /* allow wrapping */
-  overflow-wrap: break-word;  /* break long words */
-  word-break: break-word;
+  padding: 10px;
+  font-size: 1rem;
+  max-width: 100%;
+  white-space: normal;
 }
 
 td {
   vertical-align: middle;
-  padding: 10px 15px;
-  max-width: 100%;           /* constrain width */
-  white-space: normal;       /* enable wrapping */
-  overflow-wrap: break-word;
+  padding: 10px;
   word-break: break-word;
+  white-space: normal;
 }
 
-/* Make table rows use flexbox for alignment */
+/* Flex rows for larger screens */
 #itemList tr {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Vertically center all children */
+  align-items: center;
   padding: 5px 0;
 }
 
-/* The item cell takes most of the width */
 #itemList tr td:first-child {
   flex: 1;
-  max-width: 80%; /* leave space for buttons */
-  word-break: break-word;
-  white-space: normal;
   padding-right: 10px;
 }
 
-/* The action cell (buttons) */
 #itemList tr td:last-child {
   display: flex;
-  gap: 10px; /* space between edit and delete */
-  align-items: center;
-  flex-shrink: 0; /* prevent shrinking */
+  gap: 10px;
+  flex-shrink: 0;
 }
 
-/* Buttons style remains as before with padding */
-.deleteBtn,
-.editBtn {
-  font-size: 1.4rem;
+/* Buttons */
+.deleteBtn, .editBtn {
+  font-size: 1.1rem;
   border: none;
-  background-color: transparent;
+  background: transparent;
   cursor: pointer;
   padding: 8px 12px;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
 }
 
-.liParent {
-  display: grid;
-  justify-content: space-around;
-  margin-top: 20px;
+.deleteBtn { color: red; }
+.editBtn { color: green; }
+
+/* 📱 Media Queries */
+
+/* Tablet & small laptops */
+@media (max-width: 900px) {
+  .headding { font-size: 1.8rem; }
+  .container { padding: 15px; }
+}
+
+/* Mid-size phones */
+@media (max-width: 600px) {
+  .headding { font-size: 1.5rem; }
+  .inputBox { font-size: 0.95rem; }
+  .add, .clear { font-size: 0.95rem; max-width: 200px; }
+  #itemList tr td:first-child { font-size: 0.95rem; }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+  .headding { font-size: 1.2rem; margin: 5px 0; }
+  .container { width: 95%; padding: 10px; }
+  .inputBox { height: 40px; font-size: 0.9rem; }
+  .add, .clear { height: 40px; font-size: 0.9rem; width: 100%; }
   
-}
-
-.deleteBtn,
-.editBtn {
-  font-size: 1.2rem;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.deleteBtn {
-  color: red;
-  padding: 10px;
-}
-
-.editBtn {
-  padding: 10px;
-  color: green;
-  margin-left: 20px;
-}
-
-/* 🔹 Media Queries */
-@media (max-width: 768px) {
-  .headding {
-    font-size: 2rem;
+  /* Table turns into vertical stack */
+  #itemList tr {
+    display: block;
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
   }
-  .inputBox {
-    width: 95%;
-    font-size: 1rem;
-  }
-  .add,
-  .clear {
-    width: 80%;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .headding {
-    font-size: 1.5rem;
-  }
-  .inputBox {
+  #itemList tr td {
+    display: block;
     width: 100%;
+    padding: 6px 0;
+  }
+  #itemList tr td:last-child {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 8px;
+  }
+  .deleteBtn, .editBtn {
+    flex: 1;
+    text-align: center;
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+}
+/* Small phones */
+@media (max-width: 400px) {
+  .headding {
+    font-size: 1.2rem;
+    margin: 5px 0;
+  }
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+  .inputBox {
+    height: 40px;
     font-size: 0.9rem;
   }
-  .add,
-  .clear {
+  .add, .clear {
+    height: 40px;
+    font-size: 0.9rem;
     width: 100%;
+  }
+
+  /* Table becomes block layout */
+  #itemList tr {
+    display: block;
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
+    text-align: left;  /* ✅ ensures left alignment */
+  }
+
+  #itemList tr td {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 6px 0;
+    text-align: left;   /* ✅ keeps items aligned left */
+    word-break: break-word; /* ✅ avoids overflow */
+  }
+
+  #itemList tr td:first-child {
     font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 5px;  /* little gap before buttons */
+  }
+
+  #itemList tr td:last-child {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 8px;
+  }
+
+  .deleteBtn, .editBtn {
+    flex: unset;        /* ✅ don't stretch buttons full */
+    font-size: 1rem;
+    padding: 6px 12px;
   }
 }
